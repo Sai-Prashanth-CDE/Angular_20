@@ -1,0 +1,41 @@
+<table style="width: 100%;"> 
+    <tr>
+        <!--Interpolation-->
+        <td>{{courseName}}</td>
+        <td>{{productPrice}}</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" value={{courseName}}>
+        </td>
+        <td>
+            <!--Property binding dynamic-->
+            <input [type]="inputType"  [maxLength]="maxLenght">
+        </td>
+        <td>
+            <p [className]="myClassName">This is some text for class binding</p>
+        </td>
+    </tr>
+    <tr>
+        <!-- Event Binding-->
+        <td>
+            <button (click)="showWelcome()">Get Alert</button>
+        </td>
+        <td>
+            <button (click)="changeCourseName()">Change Course Name</button>
+        </td>
+        <td>
+            <select (change)="onCityChange()">
+                <option>Pune</option>
+                <option value="">Nagpur</option>
+                <option value="">Mumbai</option>
+
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" [(ngModel)]="courseName">
+        </td>
+    </tr>
+</table>

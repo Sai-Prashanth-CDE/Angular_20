@@ -1,59 +1,69 @@
-# Practice
+**Angular 20**
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.16.
+Pre: HTML, CSS, JS
 
-## Development server
+Topics:
 
-To start a local development server, run:
+1. Setup and Installation(Node JS, VS Code, Angular CLI)
+    https://nodejs.org/en  -- Install node from here
+    https://code.visualstudio.com -  Code editor from here
+    npm install -g @angular/cli  -- install angular using this
 
-```bash
-ng serve
-```
+    CLI: ng new <project_name>  --- create project using this command
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+    npm install( it will check dependencies in package.json and installs missing dependencies in node_modules)
 
-## Code scaffolding
+2. Component
+    - Building block of web page
+    - app.component.ts => app.ts (naming conventions)
+    - ng g c <Component_name> (Command to create component)
+    - it contains ts file, css file and HTML for User Interface.
+    - Contains selector in decorator, which is useful to run applications.
+    Component Decorator
+    - We will write all file details here like HTML, CSS
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+3. Data Binding
+    ONE WAY DATA BINDING
 
-```bash
-ng generate component component-name
-```
+    - The main use of typescript is bind the variables to specific type not loosely coupled.
+        productPrice:number = 12500;
+    - Interplolation 
+        {{property_in_tsfile}}
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+    - Property Binding
+        we can dynamically assign value to any tag i.e Dynamic value, Dynamic Class
+            <p [className]="myClassName">This is some text for class binding</p>
+            <input [type]="inputType" [maxLength]="maxLenght">
+            <input type="text" value={{courseName}}>
+    
+    - Event Binding
+        Triggering action on click of button or onchange of input value etc..
+            <button (click)="showWelcome()">Get Alert</button>
+            <button (click)="changeCourseName()">Change Course Name</button>
+            <select (change)="onCityChange()">
+                <option>Pune</option>
+                <option value="">Nagpur</option>
+                <option value="">Mumbai</option>
+            </select>
+    TWO WAY DATA BINDING
+    - Using NgModel (import Forms Module in ts file)
+    - Data will be in Sync in both ts file and HTML file
+            <input type="text" [(ngModel)]="courseName">
 
-```bash
-ng generate --help
-```
+4. Signals
+    - currently zone.js is responsible for change detection
+    - Without zone.js performance increases, so signal makes application donot use zone.js.
+    - Similar as Rxjs
+    - Normal Signal
+           courseName = signal<string>("Angular");
+           courseDuration = signal("15 Videos");
+           <span>{{courseName()}}</span>
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
